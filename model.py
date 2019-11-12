@@ -1,0 +1,52 @@
+import random
+
+def initalize_board():
+    board = {}
+    for x in range(1,20):
+        for y in range(20):
+            board[(x,y)] = None
+    return board
+
+def initalize_snake(_board):
+    _snake = [(random.randint(8, 12), random.randint(8, 12))]
+    _board[_snake[0]] = "SnakeHead"
+    return _snake
+
+def set_new_position(direction, snake, board):
+    if direction == 0:
+        head_x, head_y = snake[0]
+        board[(head_x, head_y)] = None
+
+        head_y = head_y - 1
+        board[(head_x, head_y)] = "SnakeHead"
+        snake[0] = (head_x, head_y)
+
+    if direction == 1:
+        head_x, head_y = snake[0]
+        board[(head_x, head_y)] = None
+
+        head_x = head_x + 1
+        board[(head_x, head_y)] = "SnakeHead"
+        snake[0] = (head_x, head_y)
+
+    if direction == 2:
+        head_x, head_y = snake[0]
+        board[(head_x, head_y)] = None
+
+        head_y = head_y + 1
+        board[(head_x, head_y)] = "SnakeHead"
+        snake[0] = (head_x, head_y)
+
+    if direction == 3:
+        head_x, head_y = snake[0]
+        board[(head_x, head_y)] = None
+
+        head_x = head_x - 1
+        board[(head_x, head_y)] = "SnakeHead"
+        snake[0] = (head_x, head_y)
+
+
+
+board = initalize_board()
+snake = initalize_snake(board)
+print(board)
