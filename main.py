@@ -5,7 +5,7 @@
 
 import pygame
 
-from model import initalize_board, initalize_snake, set_new_position
+from model import initalize_board, initialize_snake, set_new_position, initialize_apple, eat_apple
 from view import draw
 
 step = 20
@@ -35,13 +35,15 @@ def turn(direction):
 
 head_direction = 0
 board = initalize_board()
-snake = initalize_snake(board)
+snake = initialize_snake(board)
+apple = initialize_apple(board)
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit(1)
     head_direction = turn(head_direction)
+    apple = eat_apple(board, snake, apple )
     set_new_position(head_direction, snake, board)
     screen.fill((225, 225, 225))
 
