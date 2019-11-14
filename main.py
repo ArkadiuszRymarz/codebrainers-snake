@@ -43,8 +43,8 @@ while True:
         if event.type == pygame.QUIT:
             exit(1)
     head_direction = turn(head_direction)
-    apple = eat_apple(board, snake, apple )
-    set_new_position(head_direction, snake, board)
+    apple = eat_apple(board, snake, apple)
+    snake = set_new_position(head_direction, snake, board)
     screen.fill((225, 225, 225))
 
     draw(board, screen)
